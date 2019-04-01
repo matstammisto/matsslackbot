@@ -43,13 +43,23 @@ const headers = {
           text: `Current BTC rate: ${rate} EUR per 1 BTC`
         }
 
-    const options = {
-      url:   'https://slack.com/api/chat.postMessage',
-      method: 'POST',
-      headers,
-      body:  JSON.stringify(body)
-    };
+        const options = {
+          url:   'https://slack.com/api/chat.postMessage',
+          method: 'POST',
+          headers,
+          body:  JSON.stringify(reply)
+        };
 
+        console.log(body);
+
+        request.post(options, function(err, res, body) {
+          if (err) {
+            console.log(err);
+          }
+        });
+      }
+    });
+  }
     request.post(options, function(err, res, body) {
       if (err) {
         console.log(err);
