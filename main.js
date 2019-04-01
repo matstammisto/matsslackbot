@@ -60,12 +60,6 @@ const headers = {
       }
     });
   }
-    request.post(options, function(err, res, body) {
-      if (err) {
-        console.log(err);
-      }
-    })
-  }
 
   res.json(reply);
 });
