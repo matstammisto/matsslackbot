@@ -16,14 +16,13 @@ app.get('/', function (req, res) {
 });
 
 app.post('/action-endpoint', function (req, res) {
-  const challenge = req.body.challenge;
+  const challenge = req.body.challenge; // this challenge is needed to ensure slack that our bot works
+
   const reply = {
       "challenge": challenge
   };
-  res.json(reply);
-});
 
-const headers = {
+  const headers = {
     'Content-type': 'application/json',
     'Authorization': `Bearer ${process.env.TOKEN}` // this token you need to set on heroku
   }
